@@ -78,6 +78,12 @@ void obj_test()
 		// make it glow
 		palette_bank = key_is_down(KEY_SELECT) ? 1 : 0;
 
+		if (y <= 0) {
+			y = 1;
+		} else if (y+paddleTilePixelLength >= SCREEN_HEIGHT) {
+			y = SCREEN_HEIGHT-paddleTilePixelLength-1;
+		}
+
 		// Build left paddle
 		paddle_left->attr2= ATTR2_BUILD(0, palette_bank, 0);
 		obj_set_pos(paddle_left, xOffset, y);
