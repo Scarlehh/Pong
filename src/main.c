@@ -44,14 +44,7 @@ const unsigned int rightPaddleTiles[paddleTilesLen] = {0x00001111,
 OBJ_ATTR obj_buffer[128];
 OBJ_AFFINE *obj_aff_buffer= (OBJ_AFFINE*)obj_buffer;
 
-// testing a few sprite things
-// D-pad: move
-// SELECT: switch palette
-// START: toggle mapping mode
-// A: horizontal flip
-// B: vertical flip
-// L & R shift starting tile
-void obj_test()
+void draw()
 {
 	int y=32;
 	u32 palette_bank=0;
@@ -111,7 +104,7 @@ int main() {
 	oam_init(obj_buffer, 128);
 	REG_DISPCNT= DCNT_OBJ | DCNT_OBJ_1D;
 
-	obj_test();
+	draw();
 
     while(1);
 
